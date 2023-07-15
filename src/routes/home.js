@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import job1 from "../images/job1.svg";
 import "../styles/home.css";
 const Home = () => {
@@ -14,12 +15,12 @@ const Home = () => {
       </header>
       <small>Login or Register to get started with your Search.</small>
       <div>
-        <a href="/login">
+        <Link to="/login">
           <button>Login</button>
-        </a>
-        <a href="/register">
+        </Link>
+        <Link to="/register">
           <button>Register</button>
-        </a>
+        </Link>
       </div>
       <div className="home-popular">
         <p>Popular Jobs</p>
@@ -28,27 +29,27 @@ const Home = () => {
             <img src={job1} alt="job1" />
             <div>
               <p>Software Engineer</p>
-              <a href="/jobs">
+              <Link to="/jobs">
                 <button>Visit</button>
-              </a>
+              </Link>
             </div>
           </div>
           <div className="home-card">
             <img src={job1} alt="job1" />
             <div>
               <p>Financial Advisor</p>
-              <a href="/jobs">
+              <Link to="/jobs">
                 <button>Visit</button>
-              </a>
+              </Link>
             </div>
           </div>
           <div className="home-card">
             <img src={job1} alt="job1" />
             <div>
               <p>Civil Engineer</p>
-              <a href="/jobs">
+              <Link to="/jobs">
                 <button>Visit</button>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

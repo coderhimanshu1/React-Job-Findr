@@ -1,0 +1,65 @@
+.home {
+  color: #011627;
+}
+
+header {
+  font-size: 40px;
+}
+button {
+  padding: 10px 5px;
+  width: 90px;
+  border: none;
+  border-color: black;
+  border-radius: 2%;
+  margin: 2%;
+  background-color: #f3c677;
+  color: #011627;
+  border: 2px solid #011627;
+  font-size: 16px;
+  border-bottom-width: 5px;
+}
+
+button:hover {
+  background-color: #011627;
+  color: #f3c677;
+  border: 2px solid #a38043;
+  border-bottom-width: 5px;
+}
+button:active {
+  font-size: 13px;
+}
+/* fdfffc */
+.home {
+  text-align: center;
+  background-color: #f3c677;
+  height: 100vh;
+}
+
+.home p {
+  padding: 2vh 0.5vh;
+  font-size: 20px;
+}
+
+.home small {
+  padding: 10%;
+}
+.home-popular {
+  text-align: center;
+  padding-top: 5vh;
+}
+
+.home-cardContainer {
+  display: flex;
+}
+
+.home-card {
+  width: 100%;
+  background-color: #f3e8d4;
+  padding: 2%;
+  margin: 5%;
+  border-radius: 6%;
+}
+
+.home-card img {
+  height: 10vh;
+}

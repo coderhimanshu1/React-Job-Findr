@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import job1 from "../images/job1.svg";
 import "../styles/home.css";
+import JobSearch from "./jobSearch";
 const Home = () => {
   return (
     <div className="home">
@@ -21,6 +22,9 @@ const Home = () => {
         <Link to="/register">
           <button>Register</button>
         </Link>
+      </div>
+      <div className="home-jobSearch">
+        <JobSearch />
       </div>
       <div className="home-popular">
         <p>Popular Jobs</p>

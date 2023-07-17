@@ -1,10 +1,7 @@
-.home {
-  color: #011627;
-}
-
 header {
   font-size: 40px;
 }
+
 button {
   padding: 10px 5px;
   width: 90px;
@@ -24,14 +21,22 @@ button:hover {
   border: 2px solid #a38043;
   border-bottom-width: 5px;
 }
+
 button:active {
   font-size: 13px;
 }
-/* fdfffc */
+
 .home {
+  position: absolute;
+  top: 70px; /* Adjust this value according to your navbar's height */
+  left: 0;
+  width: 100vw;
+  height: calc(
+    100vh - 90px
+  ); /* Adjust this value according to your navbar's height */
   text-align: center;
-  background-color: #f3c677;
-  height: 100vh;
+  color: #011627;
+  overflow: hidden;
 }
 
 .home p {
@@ -42,23 +47,49 @@ button:active {
 .home small {
   padding: 10%;
 }
+
 .home-popular {
   text-align: center;
-  padding-top: 5vh;
 }
 
 .home-cardContainer {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .home-card {
-  width: 100%;
+  flex: 0 1 calc(25% - 2%);
+  max-width: calc(25% - 2%);
   background-color: #f3e8d4;
   padding: 2%;
-  margin: 5%;
+  margin: 1%;
   border-radius: 4%;
 }
 
 .home-card img {
   height: 10vh;
+  width: 100%;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 768px) {
+  .home-popular {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .home-card {
+    flex: 0 1 100%;
+    max-width: 50%;
+  }
+
+  .home {
+    height: auto;
+    overflow: auto;
+  }
+}
+
+.home-jobSearch {
+  padding: 5% 0;
 }

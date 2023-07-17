@@ -1,16 +1,16 @@
 .nav {
   display: flex;
   justify-content: space-between;
-  background-color: #f3c677;
 }
 
 .nav-brand {
   display: flex;
-  padding: 2%;
+  padding: 1%;
 }
 
 .nav-logo {
   padding: 2%;
+  height: 40px;
   animation: App-logo-spin infinite 20s linear;
 }
 
@@ -22,11 +22,11 @@
 
 .nav-links {
   display: flex;
-  padding: 4%;
+  padding: 2% 6%;
 }
 
 .nav-links a {
-  margin: 0 5%;
+  margin: 8% 9%;
 }
 
 @keyframes App-logo-spin {

@@ -17,6 +17,10 @@
   width: 100%;
 }
 
+.jobSearch-input:focus::placeholder {
+  color: transparent;
+}
+
 .jobSearch-input {
   font-size: 120%;
   text-align: center;

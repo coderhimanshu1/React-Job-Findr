@@ -1,0 +1,40 @@
+.companies {
+  color: #011627;
+}
+.companies-header {
+  text-align: center;
+}
+.companies img {
+  height: 200px;
+  padding: 2% 0;
+}
+
+.companies a {
+  text-decoration: none;
+  color: #011627;
+}
+
+.companies-card:hover {
+  color: #3d55a4;
+  background-color: #f9f0dc;
+  box-shadow: 0px 4px 6px #03101b;
+  transform: scale(1.1);
+  transition: transform 0.3s ease-in-out; /* New */
+}
+
+.companies-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.companies-card {
+  width: 200px;
+  border: transparent;
+  background-color: #fcfced;
+  margin: 10px;
+  padding: 20px;
+  border-radius: 23px;
+  box-shadow: 0px 2px 4px #03101b;
+  transition: transform 0.3s ease-in-out; /* New */
+}

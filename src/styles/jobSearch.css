@@ -40,9 +40,20 @@
   margin: 2%;
   padding: 10px;
   background-color: #686b0f;
-  color: #011627;
+  color: #fcfced;
   border: 2px solid #011627;
   font-size: 16px;
   cursor: pointer;
   border-bottom-width: 5px;
+}
+
+.jobSearch-button:hover {
+  background-color: #011627;
+  color: #f3c677;
+  border: 2px solid #a38043;
+  border-bottom-width: 5px;
+}
+
+.jobSearch-button:active {
+  font-size: 13px;
 }

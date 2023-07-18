@@ -1,0 +1,13 @@
+.jobs-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.job-card {
+  width: 200px;
+  border: 1px solid #000;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+}

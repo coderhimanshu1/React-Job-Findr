@@ -1,5 +1,9 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import login from "../images/login.svg";
 import "../styles/login.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser, faLock } from "@fortawesome/free-solid-svg-icons";
 
 const LoginForm = () => {
   const [username, setUsername] = useState("");
@@ -20,33 +24,38 @@ const LoginForm = () => {
   };
 
   return (
-    <form className="login" onSubmit={handleSubmit}>
-      <label className="login-title">
-        Username*
-        <input
-          className="login-input"
-          type="username"
-          name="username"
-          placeholder="enter username"
-          value={username}
-          onChange={handleUsernameChange}
-          required
-        />
-      </label>
-      <label className="login-title">
-        Password*
-        <input
-          className="login-input"
-          type="password"
-          name="password"
-          value={password}
-          placeholder="enter password "
-          onChange={handlePasswordChange}
-          required
-        />
-      </label>
-      <input className="login-button" type="submit" value="Log In" />
-    </form>
+    <div className="login">
+      <h1>Welcome Back</h1>
+      <img src={login} alt="login" />
+      <form className="login-form" onSubmit={handleSubmit}>
+        <label>
+          <FontAwesomeIcon icon={faUser} />
+          <input
+            type="username"
+            name="username"
+            placeholder="enter username"
+            value={username}
+            onChange={handleUsernameChange}
+            required
+          />
+        </label>
+        <label>
+          <FontAwesomeIcon icon={faLock} />
+          <input
+            type="password"
+            name="password"
+            value={password}
+            placeholder="enter password "
+            onChange={handlePasswordChange}
+            required
+          />
+        </label>
+        <input className="login-button" type="submit" value="Log In" />
+        <p>
+          Don't Have an Account? <Link to="/register">Register</Link>
+        </p>
+      </form>
+    </div>
   );
 };
 

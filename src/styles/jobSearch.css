@@ -1,7 +1,6 @@
 .jobSearch {
   display: flex;
   flex-direction: column;
-  padding: 10px;
   max-width: 60%;
   color: #7c8084;
   background-color: #f3e8d4;
@@ -19,8 +18,6 @@
 }
 
 .jobSearch-input {
-  padding: 1% 2%;
-  margin: 0% 2%;
   font-size: 120%;
   text-align: center;
   border: transparent;
@@ -34,11 +31,14 @@
 }
 
 .jobSearch-button {
-  border: transparent;
-  color: #f3e8d4;
+  width: 30%;
+  border-radius: 2%;
+  margin: 2%;
+  padding: 10px;
   background-color: #686b0f;
-  padding: 2%;
-  width: 20%;
-  margin: 0 1%;
-  border-radius: 3%;
+  color: #011627;
+  border: 2px solid #011627;
+  font-size: 16px;
+  cursor: pointer;
+  border-bottom-width: 5px;
 }

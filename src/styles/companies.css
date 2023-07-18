@@ -19,7 +19,7 @@
   background-color: #f9f0dc;
   box-shadow: 0px 4px 6px #03101b;
   transform: scale(1.1);
-  transition: transform 0.3s ease-in-out; /* New */
+  transition: transform 0.3s ease-in-out;
 }
 
 .companies-container {
@@ -36,5 +36,4 @@
   padding: 20px;
   border-radius: 23px;
   box-shadow: 0px 2px 4px #03101b;
-  transition: transform 0.3s ease-in-out; /* New */
 }

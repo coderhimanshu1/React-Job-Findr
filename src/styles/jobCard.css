@@ -1,0 +1,13 @@
+.job-card {
+  width: 200px;
+  border: transparent;
+  background-color: #fcfced;
+  margin: 10px;
+  padding: 20px;
+  border-radius: 23px;
+  box-shadow: 0px 2px 4px #03101b;
+}
+
+.job-card button {
+  float: right;
+}

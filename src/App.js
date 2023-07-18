@@ -4,6 +4,7 @@ import Login from "./routes/login";
 import Register from "./routes/register";
 import Jobs from "./routes/jobs";
 import Companies from "./routes/companies";
+import Company from "./routes/company";
 import NavBar from "./routes/nav";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import React from "react";
@@ -19,6 +20,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/jobs" element={<Jobs />} />
           <Route path="/companies" element={<Companies />} />
+          <Route path="/companies/:companyHandle" element={<Company />} />
         </Routes>
       </Router>
     </div>

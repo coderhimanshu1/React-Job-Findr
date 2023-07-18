@@ -2,17 +2,17 @@ import React, { useState, useEffect } from "react";
 import JoblyApi from "../helper/api";
 import job from "../images/jobs.svg";
 import "../styles/jobs.css";
+import JobCard from "./jobCard";
 
 const Jobs = () => {
   const [jobs, setJobs] = useState([]);
 
-  // replace 'testUser' with the actual username
+  // TODO: replace 'testUser' with the actual username
   const username = "testUser";
 
   useEffect(() => {
     async function getJobsFromAPI() {
       const jobsData = await JoblyApi.getJobs();
-      console.log("jobsData>>>>>", jobsData);
       setJobs(jobsData);
     }
     getJobsFromAPI();
@@ -33,19 +33,13 @@ const Jobs = () => {
       </div>
       <div className="jobs-container">
         {jobs.map((job, index) => (
-          <div className="job-card" key={index}>
-            <h2>{job.title}</h2>
-            <p>{job.companyHandle}</p>
-            <p>
-              <strong>Salary:</strong> {job.salary}
-            </p>
-            <p>
-              <strong>Equity:</strong> {job.equity !== null ? job.equity : 0}
-            </p>
-            <button onClick={() => handleApply(job.id)}>
-              {job.applied ? "Applied" : "Apply"}
-            </button>
-          </div>
+          <JobCard
+            handleApply={handleApply}
+            title={job.title}
+            companyHandle={job.companyHandle}
+            salary={job.salary}
+            equity={job.equity}
+          />
         ))}
       </div>
     </div>

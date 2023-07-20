@@ -33,12 +33,6 @@ function App() {
     getUser();
   }, [token]);
 
-  const logout = () => {
-    JoblyApi.token = null;
-    setCurrentUser(null);
-    setToken(null);
-  };
-
   const handleLogin = async (loginData) => {
     let token = await JoblyApi.loginUser(loginData);
     setToken(token);
@@ -48,8 +42,8 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <UserContext.Provider value={{ currentUser, setCurrentUser }}>
-          <NavBar logout={logout} />
+        <UserContext.Provider value={{ currentUser, setCurrentUser, setToken }}>
+          <NavBar />
           <Routes>
             <Route path="/" element={<Home currentUser={currentUser} />} />
             <Route path="/login" element={<Login login={handleLogin} />} />

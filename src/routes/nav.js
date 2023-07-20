@@ -1,12 +1,22 @@
 import logo from "../images/logo.svg";
 import "../styles/nav.css";
 import React, { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import JoblyApi from "../helper/api";
 
 import UserContext from "./userContext";
 
-const NavBar = ({ logout }) => {
-  const { currentUser } = useContext(UserContext);
+const NavBar = () => {
+  const { currentUser, setCurrentUser, setToken } = useContext(UserContext);
+  const navigate = useNavigate();
+
+  const logout = () => {
+    JoblyApi.token = null;
+    setCurrentUser(null);
+    setToken(null);
+    navigate("/");
+  };
+
   return (
     <div className="nav">
       <div className="nav-brand">

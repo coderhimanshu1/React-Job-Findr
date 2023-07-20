@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import "../styles/jobSearch.css";
+import "../../styles/searchBar.css";
 
-const JobSearch = () => {
+const SearchBar = ({ placeholder, onSearch }) => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleInputChange = (event) => {
@@ -12,11 +12,11 @@ const JobSearch = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(`Searching for jobs with the term: ${searchTerm}`);
+    onSearch(searchTerm);
   };
 
   return (
-    <form onSubmit={handleSubmit} className="jobSearch">
+    <form onSubmit={handleSubmit} className="searchBar">
       <label>
         <FontAwesomeIcon icon={faSearch} />
         <input
@@ -24,14 +24,14 @@ const JobSearch = () => {
           name="jobTitle"
           value={searchTerm}
           onChange={handleInputChange}
-          className="jobSearch-input"
-          placeholder="Search for any job title here"
+          className="searchBar-input"
+          placeholder={placeholder}
           required
         />
-        <input type="submit" value="Search" className="jobSearch-button" />
+        <input type="submit" value="Search" className="searchBar-button" />
       </label>
     </form>
   );
 };
 
-export default JobSearch;
+export default SearchBar;

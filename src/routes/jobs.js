@@ -3,6 +3,7 @@ import JoblyApi from "../helper/api";
 import job from "../images/jobs.svg";
 import "../styles/jobs.css";
 import JobCard from "./jobCard";
+import SearchBar from "./common/searchBar";
 
 const Jobs = () => {
   const [jobs, setJobs] = useState([]);
@@ -29,8 +30,16 @@ const Jobs = () => {
     <div className="jobs">
       <div className="jobs-header">
         <h1>Job Listings</h1>
+
         <img src={job} alt="jobs" />
       </div>
+
+      <SearchBar
+        placeholder="Search for any job title here"
+        onSearch={(term) =>
+          console.log(`Searching for jobs with the term: ${term}`)
+        }
+      />
       <div className="jobs-container">
         {jobs.map((job, index) => (
           <JobCard

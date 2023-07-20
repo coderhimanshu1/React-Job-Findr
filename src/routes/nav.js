@@ -4,7 +4,7 @@ import React, { useContext } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import JoblyApi from "../helper/api";
 
-import UserContext from "./userContext";
+import UserContext from "./common/userContext";
 
 const NavBar = () => {
   const { currentUser, setCurrentUser, setToken } = useContext(UserContext);

@@ -1,5 +1,6 @@
 header {
   font-size: 40px;
+  padding-top: 90px;
 }
 
 button {
@@ -20,6 +21,7 @@ button:hover {
   color: #f3c677;
   border: 2px solid #a38043;
   border-bottom-width: 5px;
+  cursor: pointer;
 }
 
 button:active {
@@ -28,20 +30,13 @@ button:active {
 
 .home {
   position: absolute;
-  top: 70px; /* Adjust this value according to your navbar's height */
+  top: 70px;
   left: 0;
   width: 100vw;
-  height: calc(
-    100vh - 90px
-  ); /* Adjust this value according to your navbar's height */
+  height: calc(100vh - 90px);
   text-align: center;
   color: #011627;
   overflow: hidden;
-}
-
-.home p {
-  padding: 2vh 0.5vh;
-  font-size: 20px;
 }
 
 .home small {
@@ -50,6 +45,12 @@ button:active {
 
 .home-popular {
   text-align: center;
+  padding: 10% 0;
+}
+
+.home-popular-img {
+  height: 150px;
+  width: 200px;
 }
 
 .home-cardContainer {
@@ -59,26 +60,34 @@ button:active {
 }
 
 .home-card {
-  flex: 0 1 calc(25% - 2%);
-  max-width: calc(25% - 2%);
+  display: flex;
   background-color: #f3e8d4;
   padding: 2%;
   margin: 1%;
   border-radius: 4%;
 }
 
+.home-card-title {
+  flex: 1;
+}
+
 .home-card img {
   height: 10vh;
-  width: 100%;
-  object-fit: cover;
+  max-width: 30%;
+  object-fit: contain;
+}
+
+.home-card p {
+  font-size: 20px;
+  padding: 0;
+}
+
+.home-card small {
+  padding-left: 85px;
+  color: #736b60;
 }
 
 @media screen and (max-width: 768px) {
-  .home-popular {
-    display: flex;
-    flex-direction: column;
-  }
-
   .home-card {
     flex: 0 1 100%;
     max-width: 50%;
@@ -100,9 +109,4 @@ button:active {
   left: 0;
   z-index: -1;
   max-width: 100%;
-}
-
-.home {
-  /* your styles */
-  z-index: 1;
 }

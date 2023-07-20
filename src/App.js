@@ -9,7 +9,7 @@ import Jobs from "./routes/jobs";
 import Companies from "./routes/companies";
 import Company from "./routes/company";
 import NavBar from "./routes/nav";
-import UserContext from "./routes/userContext";
+import UserContext from "./routes/common/userContext";
 import jwt from "jsonwebtoken";
 
 function App() {

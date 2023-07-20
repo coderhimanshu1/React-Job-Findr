@@ -1,4 +1,4 @@
-.jobSearch {
+.searchBar {
   display: flex;
   flex-direction: column;
   max-width: 60%;
@@ -10,7 +10,7 @@
   box-shadow: 0px 0px 20px 15px rgba(0, 0, 0, 0.1);
 }
 
-.jobSearch label {
+.searchBar label {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -18,11 +18,11 @@
   width: 100%;
 }
 
-.jobSearch-input:focus::placeholder {
+.searchBar-input:focus::placeholder {
   color: transparent;
 }
 
-.jobSearch-input {
+.searchBar-input {
   font-size: 120%;
   text-align: center;
   border: transparent;
@@ -31,13 +31,13 @@
   width: 50%;
 }
 
-.jobSearch-input:focus {
+.searchBar-input:focus {
   border: #4e5052;
   height: 100%;
   border-radius: 20px;
 }
 
-.jobSearch-button {
+.searchBar-button {
   width: 30%;
   border-radius: 10px;
   margin: 2%;
@@ -50,13 +50,13 @@
   border-bottom-width: 5px;
 }
 
-.jobSearch-button:hover {
+.searchBar-button:hover {
   background-color: #011627;
   color: #f3c677;
   border: 2px solid #a38043;
   border-bottom-width: 5px;
 }
 
-.jobSearch-button:active {
+.searchBar-button:active {
   font-size: 13px;
 }

@@ -39,7 +39,7 @@ function App() {
 
   const handleLogin = async (loginData) => {
     try {
-      let token = await JoblyApi.login(loginData);
+      let token = await JoblyApi.loginUser(loginData);
       setToken(token);
       return { success: true };
     } catch (errors) {
@@ -48,7 +48,7 @@ function App() {
     }
   };
 
-  /** Handles signup.
+  /** Handles register.
    * Automatically logs them in (set token) upon signup.
    *
    */

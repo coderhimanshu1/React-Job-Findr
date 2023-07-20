@@ -1,10 +1,14 @@
 import { Link } from "react-router-dom";
 import job1 from "../images/job1.svg";
 import "../styles/home.css";
+import BackgroundAnimation from "../BackgroundAnimation";
+
 import JobSearch from "./jobSearch";
 const Home = () => {
   return (
     <div className="home">
+      <BackgroundAnimation />
+
       <header>
         {" "}
         Find your{" "}

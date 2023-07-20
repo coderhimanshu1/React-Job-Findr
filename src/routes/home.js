@@ -1,10 +1,15 @@
 import { Link } from "react-router-dom";
+import { useContext } from "react";
 import job1 from "../images/job1.svg";
 import "../styles/home.css";
 import BackgroundAnimation from "../BackgroundAnimation";
 
+import UserContext from "./userContext";
 import JobSearch from "./jobSearch";
+
 const Home = () => {
+  const { currentUser } = useContext(UserContext);
+
   return (
     <div className="home">
       <BackgroundAnimation />
@@ -19,14 +24,16 @@ const Home = () => {
         here!
       </header>
       <small>Login or Register to get started with your Search.</small>
-      <div>
-        <Link to="/login">
-          <button>Login</button>
-        </Link>
-        <Link to="/register">
-          <button>Register</button>
-        </Link>
-      </div>
+      {!currentUser && (
+        <div>
+          <Link to="/login">
+            <button>Login</button>
+          </Link>
+          <Link to="/register">
+            <button>Register</button>
+          </Link>
+        </div>
+      )}
       <div className="home-jobSearch">
         <JobSearch />
       </div>

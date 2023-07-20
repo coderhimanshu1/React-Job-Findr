@@ -96,9 +96,11 @@ const RegisterForm = ({ register }) => {
             required
           />
         </label>
-        <div className="error">
-          {formErrors.length ? <Alert messages={formErrors} /> : null}
-        </div>
+
+        {formErrors.length ? (
+          <Alert type="error" messages={formErrors} />
+        ) : null}
+
         <input
           className="register-button"
           type="submit"

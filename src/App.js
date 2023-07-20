@@ -83,7 +83,7 @@ function App() {
             />
             <Route path="/jobs" element={<Jobs />} />
             <Route path="/companies" element={<Companies />} />
-            <Route path="/companies" element={<Companies />} />
+            <Route path="/companies/:companyHandle" element={<Company />} />
             <Route path="/profile" element={<Profile />} />
           </Routes>
         </UserContext.Provider>

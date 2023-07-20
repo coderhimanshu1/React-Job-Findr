@@ -1,16 +1,15 @@
 import React from "react";
+import "../../styles/alert.css";
 
-/** Presentational component for showing bootstrap-style alerts.
- *
- * { LoginForm, SignupForm, ProfileForm } -> Alert
- **/
+function Alert({ type = "error", messages = [] }) {
+  const alertClass =
+    type === "success" ? "alert-custom-success" : "alert-custom-error";
 
-function Alert({ messages = [] }) {
   return (
-    <div role="alert">
-      {messages.map((error) => (
-        <p className="mb-0 small" key={error}>
-          {error}
+    <div className={`alert ${alertClass}`} role="alert">
+      {messages.map((msg, index) => (
+        <p className="mb-0 small" key={index}>
+          {msg}
         </p>
       ))}
     </div>

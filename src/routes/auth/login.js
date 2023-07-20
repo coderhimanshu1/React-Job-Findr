@@ -57,9 +57,9 @@ const LoginForm = ({ login }) => {
             required
           />
         </label>
-        <div className="error">
-          {formErrors.length ? <Alert messages={formErrors} /> : null}
-        </div>
+
+        {formErrors.length ? <Alert messages={formErrors} /> : null}
+
         <input className="login-button" type="submit" value="Log In" />
         <p>
           Don't Have an Account? <Link to="/register">Register</Link>

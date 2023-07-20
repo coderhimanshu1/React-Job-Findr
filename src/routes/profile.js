@@ -12,6 +12,7 @@ function Profile() {
     password: "",
   });
   const [formErrors, setFormErrors] = useState([]);
+  const [formSuccess, setFormSuccess] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -30,16 +31,22 @@ function Profile() {
       password: formData.password,
     };
 
-    let updatedUser = await JoblyApi.updateProfile(
-      currentUser.username,
-      profileData
-    );
+    try {
+      let updatedUser = await JoblyApi.updateProfile(
+        currentUser.username,
+        profileData
+      );
 
-    if (updatedUser) {
-      setCurrentUser(updatedUser);
-      console.log(updatedUser);
-    } else {
-      setFormErrors(updatedUser.errors);
+      if (updatedUser.errors) {
+        setFormErrors(updatedUser.errors);
+        setFormSuccess(""); // Clear any previous success message
+      } else {
+        setFormErrors([]);
+        setFormSuccess("Profile updated successfully!"); // Set the success message
+        setCurrentUser(updatedUser);
+      }
+    } catch (err) {
+      setFormErrors([err.message]);
     }
   };
 
@@ -69,9 +76,10 @@ function Profile() {
           value={formData.password}
           onChange={handleChange}
         />
-        <div className="error">
-          {formErrors.length ? <Alert messages={formErrors} /> : null}
-        </div>
+
+        {formErrors.length > 0 && <Alert type="error" messages={formErrors} />}
+        {formSuccess && <Alert type="success" messages={[formSuccess]} />}
+
         <button>Save Changes</button>
       </form>
     </div>

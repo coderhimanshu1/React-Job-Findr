@@ -13,6 +13,7 @@ import Company from "./routes/company";
 import NavBar from "./routes/nav";
 import UserContext from "./routes/common/userContext";
 import jwt from "jsonwebtoken";
+import Profile from "./routes/profile";
 
 // Key name for storing token
 export const TOKEN_STORAGE = "jobly-token";
@@ -82,7 +83,8 @@ function App() {
             />
             <Route path="/jobs" element={<Jobs />} />
             <Route path="/companies" element={<Companies />} />
-            <Route path="/companies/:companyHandle" element={<Company />} />
+            <Route path="/companies" element={<Companies />} />
+            <Route path="/profile" element={<Profile />} />
           </Routes>
         </UserContext.Provider>
       </Router>

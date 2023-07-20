@@ -1,32 +1,34 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import login from "../images/login.svg";
-import "../styles/login.css";
+import { Link, useNavigate } from "react-router-dom";
+import loginImg from "../../images/login.svg";
+import "../../styles/login.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faLock } from "@fortawesome/free-solid-svg-icons";
 
-const LoginForm = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+const LoginForm = ({ login }) => {
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    username: "",
+    password: "",
+  });
 
-  const handleUsernameChange = (e) => {
-    setUsername(e.target.value);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((l) => ({ ...l, [name]: value }));
   };
 
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-  };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Here you would typically send a request to your server to log the user in
-    console.log(`Logging in with email: ${username} and password: ${password}`);
+    let result = await login(formData);
+    if (result.success) {
+      navigate("/companies");
+    }
   };
 
   return (
     <div className="login">
       <h1>Welcome Back</h1>
-      <img src={login} alt="login" />
+      <img src={loginImg} alt="login" />
       <form className="login-form" onSubmit={handleSubmit}>
         <label>
           <FontAwesomeIcon icon={faUser} />
@@ -34,8 +36,8 @@ const LoginForm = () => {
             type="username"
             name="username"
             placeholder="enter username"
-            value={username}
-            onChange={handleUsernameChange}
+            value={formData.username}
+            onChange={handleChange}
             required
           />
         </label>
@@ -44,9 +46,9 @@ const LoginForm = () => {
           <input
             type="password"
             name="password"
-            value={password}
+            value={formData.password}
             placeholder="enter password "
-            onChange={handlePasswordChange}
+            onChange={handleChange}
             required
           />
         </label>

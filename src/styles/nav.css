@@ -1,6 +1,7 @@
 .nav {
   display: flex;
   justify-content: space-between;
+  max-width: 95%;
 }
 
 .nav-brand {
@@ -22,11 +23,11 @@
 
 .nav-links {
   display: flex;
-  padding: 2% 6%;
+  padding: 2% 1%;
 }
 
 .nav-links a {
-  margin: 8% 9%;
+  margin: 8% 6%;
 }
 
 @keyframes App-logo-spin {

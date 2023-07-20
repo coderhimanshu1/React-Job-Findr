@@ -1,8 +1,12 @@
 import logo from "../images/logo.svg";
 import "../styles/nav.css";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 
-const NavBar = ({ user = null }) => {
+import UserContext from "./userContext";
+
+const NavBar = ({ logout }) => {
+  const { currentUser } = useContext(UserContext);
   return (
     <div className="nav">
       <div className="nav-brand">
@@ -14,16 +18,20 @@ const NavBar = ({ user = null }) => {
         </NavLink>
       </div>
 
-      {user ? (
+      {currentUser ? (
         <div className="nav-links">
-          <NavLink href="/companies">Companies</NavLink>
+          <NavLink exact to="/companies">
+            Companies
+          </NavLink>
           <NavLink exact to="/jobs">
             Jobs
           </NavLink>
           <NavLink exact to="/profile">
             My Profile
           </NavLink>
-          <button>Log Out</button>
+          <button className="nav-logout" onClick={logout}>
+            Log Out
+          </button>
         </div>
       ) : (
         <div className="nav-links">

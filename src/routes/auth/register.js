@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import registerImg from "../../images/register.svg";
 import "../../styles/register.css";
+import Alert from "../common/alert";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faUser,
@@ -18,7 +19,7 @@ const RegisterForm = ({ register }) => {
     lastName: "",
     email: "",
   });
-
+  const [formErrors, setFormErrors] = useState([]);
   const navigate = useNavigate();
 
   /** Update form data field */
@@ -31,6 +32,8 @@ const RegisterForm = ({ register }) => {
     let result = await register(formData);
     if (result.success) {
       navigate("/");
+    } else {
+      setFormErrors(result.errors);
     }
   };
 
@@ -93,6 +96,9 @@ const RegisterForm = ({ register }) => {
             required
           />
         </label>
+        <div className="error">
+          {formErrors.length ? <Alert messages={formErrors} /> : null}
+        </div>
         <input
           className="register-button"
           type="submit"

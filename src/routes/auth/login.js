@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import loginImg from "../../images/login.svg";
 import "../../styles/login.css";
+import Alert from "../common/alert";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faLock } from "@fortawesome/free-solid-svg-icons";
 
@@ -11,6 +12,8 @@ const LoginForm = ({ login }) => {
     username: "",
     password: "",
   });
+
+  const [formErrors, setFormErrors] = useState([]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -22,6 +25,8 @@ const LoginForm = ({ login }) => {
     let result = await login(formData);
     if (result.success) {
       navigate("/");
+    } else {
+      setFormErrors(result.errors);
     }
   };
 
@@ -52,6 +57,9 @@ const LoginForm = ({ login }) => {
             required
           />
         </label>
+        <div className="error">
+          {formErrors.length ? <Alert messages={formErrors} /> : null}
+        </div>
         <input className="login-button" type="submit" value="Log In" />
         <p>
           Don't Have an Account? <Link to="/register">Register</Link>

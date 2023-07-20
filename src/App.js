@@ -2,6 +2,8 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import JoblyApi from "./helper/api";
 
+import useLocalStorage from "./hooks/useLocalStorage";
+
 import Home from "./routes/home";
 import Login from "./routes/auth/login";
 import Register from "./routes/auth/register";
@@ -12,9 +14,12 @@ import NavBar from "./routes/nav";
 import UserContext from "./routes/common/userContext";
 import jwt from "jsonwebtoken";
 
+// Key name for storing token
+export const TOKEN_STORAGE = "jobly-token";
+
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
-  const [token, setToken] = useState(null);
+  const [token, setToken] = useLocalStorage(TOKEN_STORAGE);
 
   // Load user information
   useEffect(() => {

@@ -24,6 +24,8 @@ const Jobs = () => {
     navigate("/login");
   }
 
+  if (!jobs) return <div>Loading...</div>;
+
   return (
     <div className="jobs">
       <div className="jobs-header">

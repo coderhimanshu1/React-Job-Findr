@@ -9,7 +9,7 @@ const Company = () => {
   const { companyHandle } = useParams();
   const [company, setCompany] = useState(null);
 
-  const { currentUser, hasAppliedToJob, applyToJob } = useContext(UserContext);
+  const { currentUser } = useContext(UserContext);
   const navigate = useNavigate();
 
   useEffect(() => {

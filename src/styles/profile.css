@@ -1,0 +1,35 @@
+.profile {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-area {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  justify-content: center;
+}
+
+.profile form {
+  background-color: #f3e8d4;
+  padding: 10%;
+  border-radius: 23px;
+  width: 100%;
+}
+
+.profile label {
+  padding: 2%;
+  font-weight: bold;
+}
+
+.profile input {
+  border: none;
+  padding: 1.6% 4%;
+  border-radius: 26px;
+}
+
+.profile input:focus {
+  border: 2px solid #a38043;
+  outline: none;
+}

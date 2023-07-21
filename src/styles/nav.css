@@ -34,13 +34,15 @@
 }
 
 .nav-links a:hover {
-  background-color: #fff0ff;
+  border: 2px solid #795f32;
   border-radius: 10%;
 }
 
 .nav-links a:active {
+  color: #fff0ff;
   background-color: #a38043;
   border-radius: 10%;
+  padding-top: 5px;
 }
 
 @keyframes App-logo-spin {
@@ -58,14 +60,20 @@
 }
 
 @media screen and (max-width: 768px) {
-  .nav a {
-    padding: 2% 1%;
-    margin: 2px;
+  .nav-links a {
+    padding: 0%;
+    margin: 6% 3%;
+  }
+  .nav p {
+    display: none;
+  }
+  .nav-links {
+    margin: 0%;
   }
   .nav-logout {
     min-width: 80px;
-    height: 35px;
-    padding: 0%;
+    height: 45px;
+    padding: 3% 3%;
     font-size: 15px;
   }
 }

@@ -104,7 +104,7 @@ const RegisterForm = ({ register }) => {
         <input
           className="register-button"
           type="submit"
-          value="Log In"
+          value="Register"
           onClick={register}
         />
         <p>

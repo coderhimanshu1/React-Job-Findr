@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import JoblyApi from "../helper/api";
 import UserContext from "./common/userContext";
 import Alert from "./common/alert";
+import "../styles/profile.css";
 
 function Profile() {
   const { currentUser, setCurrentUser } = useContext(UserContext);
@@ -51,37 +52,56 @@ function Profile() {
   };
 
   return (
-    <div>
-      <h3>Profile</h3>
-      <form onSubmit={handleSubmit}>
-        <label>Username:</label>
-        <p>{currentUser.username}</p>
-        <input
-          name="firstName"
-          value={formData.firstName}
-          onChange={handleChange}
-        />
-        <label>Last Name:</label>
-        <input
-          name="lastName"
-          value={formData.lastName}
-          onChange={handleChange}
-        />
-        <label>Email:</label>
-        <input name="email" value={formData.email} onChange={handleChange} />
-        <label>Confirm password to make changes:</label>
-        <input
-          type="password"
-          name="password"
-          value={formData.password}
-          onChange={handleChange}
-        />
+    <div className="profile">
+      <div className="profile-area">
+        <h3>Profile</h3>
+        <form onSubmit={handleSubmit} className="profile-form">
+          <p>
+            <label>Username:</label>
+            <input name="username" value={currentUser.username} disabled />
+          </p>
+          <p>
+            <label>First Name:</label>
+            <input
+              name="firstName"
+              value={formData.firstName}
+              onChange={handleChange}
+            />
+          </p>
+          <p>
+            <label>Last Name:</label>
+            <input
+              name="lastName"
+              value={formData.lastName}
+              onChange={handleChange}
+            />
+          </p>
+          <p>
+            <label>Email:</label>
+            <input
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+            />
+          </p>
+          <p>
+            <label>Confirm password to make changes:</label>
+            <input
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+            />
+          </p>
 
-        {formErrors.length > 0 && <Alert type="error" messages={formErrors} />}
-        {formSuccess && <Alert type="success" messages={[formSuccess]} />}
+          {formErrors.length > 0 && (
+            <Alert type="error" messages={formErrors} />
+          )}
+          {formSuccess && <Alert type="success" messages={[formSuccess]} />}
 
-        <button>Save Changes</button>
-      </form>
+          <button>Save Changes</button>
+        </form>
+      </div>
     </div>
   );
 }

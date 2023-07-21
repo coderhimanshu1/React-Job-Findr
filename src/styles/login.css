@@ -34,9 +34,16 @@
 .login-form input[type="username"],
 .login-form input[type="password"] {
   padding: 6px;
-  margin: 10px 20px;
+  margin: 5px 10px;
   background-color: #ededdf;
   border: none;
+}
+
+.login-form input:focus {
+  border: 2px solid #686b0f;
+  margin: 10px 20px;
+  outline: none;
+  border-radius: 23px;
 }
 
 .login-form input[type="username"]:focus::placeholder,
@@ -45,8 +52,8 @@
 }
 
 .login-button {
-  width: 120px;
-  border-radius: 2%;
+  width: 100px;
+  border-radius: 10px;
   margin: 2%;
   padding: 10px;
   background-color: #686b0f;
@@ -55,6 +62,10 @@
   font-size: 16px;
   cursor: pointer;
   border-bottom-width: 5px;
+}
+
+.login-button:active {
+  font-size: 13px;
 }
 
 .login-button:hover {

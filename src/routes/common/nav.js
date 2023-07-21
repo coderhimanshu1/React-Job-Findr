@@ -1,10 +1,10 @@
-import logo from "../images/logo.svg";
-import "../styles/nav.css";
+import logo from "../../images/logo.svg";
+import "../../styles/nav.css";
 import React, { useContext } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import JoblyApi from "../helper/api";
+import JoblyApi from "../../helper/api";
 
-import UserContext from "./common/userContext";
+import UserContext from "./userContext";
 
 const NavBar = () => {
   const { currentUser, setCurrentUser, setToken } = useContext(UserContext);

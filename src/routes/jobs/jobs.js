@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import JoblyApi from "../helper/api";
-import job from "../images/jobs.svg";
-import "../styles/jobs.css";
+import JoblyApi from "../../helper/api";
+import job from "../../images/jobs.svg";
+import "../../styles/jobs.css";
 import JobCard from "./jobCard";
-import SearchBar from "./common/searchBar";
+import SearchBar from "../common/searchBar";
 
 const Jobs = () => {
   const [jobs, setJobs] = useState([]);

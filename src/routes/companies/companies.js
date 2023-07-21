@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import JoblyApi from "../helper/api";
+import JoblyApi from "../../helper/api";
 import { Link } from "react-router-dom";
-import company from "../images/companies.svg";
-import "../styles/companies.css";
+import company from "../../images/companies.svg";
+import "../../styles/companies.css";
 
-import SearchBar from "./common/searchBar";
+import SearchBar from "../common/searchBar";
 
 const Companies = () => {
   const [companies, setCompanies] = useState([]);

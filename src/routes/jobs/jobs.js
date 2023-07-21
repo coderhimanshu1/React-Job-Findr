@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import UserContext from "../common/userContext";
 import JoblyApi from "../../helper/api";
 import job from "../../images/jobs.svg";
 import "../../styles/jobs.css";
@@ -7,9 +9,8 @@ import SearchBar from "../common/searchBar";
 
 const Jobs = () => {
   const [jobs, setJobs] = useState([]);
-
-  // TODO: replace 'testUser' with the actual username
-  const username = "testUser";
+  const { currentUser } = useContext(UserContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function getJobsFromAPI() {
@@ -19,8 +20,12 @@ const Jobs = () => {
     getJobsFromAPI();
   }, []);
 
+  if (!currentUser) {
+    navigate("/login");
+  }
+
   const handleApply = async (jobId) => {
-    await JoblyApi.applyToJob(username, jobId);
+    await JoblyApi.applyToJob(currentUser, jobId);
     setJobs(
       jobs.map((job) => (job.id === jobId ? { ...job, applied: true } : job))
     );

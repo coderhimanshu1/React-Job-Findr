@@ -1,13 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import JoblyApi from "../../helper/api";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import company from "../../images/companies.svg";
 import "../../styles/companies.css";
+import UserContext from "../common/userContext";
 
 import SearchBar from "../common/searchBar";
 
 const Companies = () => {
   const [companies, setCompanies] = useState([]);
+  const { currentUser } = useContext(UserContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function getCompaniesFromAPI() {
@@ -16,6 +19,10 @@ const Companies = () => {
     }
     getCompaniesFromAPI();
   }, []);
+
+  if (!currentUser) {
+    navigate("/login");
+  }
 
   return (
     <div className="companies">

@@ -1,19 +1,19 @@
 import JobCard from "../jobs/jobCard";
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import React, { useState, useEffect, useContext } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import JoblyApi from "../../helper/api";
 import "../../styles/company.css";
+import UserContext from "../common/userContext";
 
 const Company = () => {
   const { companyHandle } = useParams();
   const [company, setCompany] = useState(null);
   const [jobs, setJobs] = useState([]);
 
-  // TODO: replace 'testUser' with the actual username
-  const username = "testUser";
-
+  const { currentUser } = useContext(UserContext);
+  const navigate = useNavigate();
   const handleApply = async (jobId) => {
-    await JoblyApi.applyToJob(username, jobId);
+    await JoblyApi.applyToJob(currentUser, jobId);
     setJobs(
       jobs.map((job) => (job.id === jobId ? { ...job, applied: true } : job))
     );
@@ -26,6 +26,10 @@ const Company = () => {
     }
     getCompanyFromAPI();
   }, [companyHandle]);
+
+  if (!currentUser) {
+    navigate("/login");
+  }
 
   if (!company) return <div>Loading...</div>;
 

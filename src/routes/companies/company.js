@@ -8,16 +8,9 @@ import UserContext from "../common/userContext";
 const Company = () => {
   const { companyHandle } = useParams();
   const [company, setCompany] = useState(null);
-  const [jobs, setJobs] = useState([]);
 
-  const { currentUser } = useContext(UserContext);
+  const { currentUser, hasAppliedToJob, applyToJob } = useContext(UserContext);
   const navigate = useNavigate();
-  const handleApply = async (jobId) => {
-    await JoblyApi.applyToJob(currentUser, jobId);
-    setJobs(
-      jobs.map((job) => (job.id === jobId ? { ...job, applied: true } : job))
-    );
-  };
 
   useEffect(() => {
     async function getCompanyFromAPI() {
@@ -43,11 +36,11 @@ const Company = () => {
       <div className="jobs-container">
         {company.jobs.map((job, index) => (
           <JobCard
+            id={job.id}
             title={job.title}
             salary={job.salary}
             equity={job.equity}
             index={index}
-            handleApply={handleApply}
           />
         ))}
       </div>

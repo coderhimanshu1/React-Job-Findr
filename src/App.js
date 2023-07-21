@@ -21,6 +21,7 @@ export const TOKEN_STORAGE = "jobly-token";
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const [token, setToken] = useLocalStorage(TOKEN_STORAGE);
+  const [applicationIds, setApplicationIds] = useState(new Set([]));
 
   // Load user information
   useEffect(() => {
@@ -69,10 +70,30 @@ function App() {
     }
   };
 
+  /** Checks if a job has been applied for. */
+  function hasAppliedToJob(id) {
+    return applicationIds.has(id);
+  }
+
+  /** Apply to a job: make API call and update set of application IDs. */
+  function applyToJob(id) {
+    if (hasAppliedToJob(id)) return;
+    JoblyApi.applyToJob(currentUser.username, id);
+    setApplicationIds(new Set([...applicationIds, id]));
+  }
+
   return (
     <div className="App">
       <Router>
-        <UserContext.Provider value={{ currentUser, setCurrentUser, setToken }}>
+        <UserContext.Provider
+          value={{
+            currentUser,
+            setCurrentUser,
+            setToken,
+            hasAppliedToJob,
+            applyToJob,
+          }}
+        >
           <NavBar />
           <Routes>
             <Route path="/" element={<Home currentUser={currentUser} />} />

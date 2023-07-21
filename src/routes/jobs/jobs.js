@@ -24,13 +24,6 @@ const Jobs = () => {
     navigate("/login");
   }
 
-  const handleApply = async (jobId) => {
-    await JoblyApi.applyToJob(currentUser, jobId);
-    setJobs(
-      jobs.map((job) => (job.id === jobId ? { ...job, applied: true } : job))
-    );
-  };
-
   return (
     <div className="jobs">
       <div className="jobs-header">
@@ -48,7 +41,7 @@ const Jobs = () => {
       <div className="jobs-container">
         {jobs.map((job, index) => (
           <JobCard
-            handleApply={handleApply}
+            id={job.id}
             title={job.title}
             companyHandle={job.companyHandle}
             salary={job.salary}

@@ -1,4 +1,4 @@
-.register {
+.form-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -7,7 +7,12 @@
   padding: 0;
 }
 
-.register-form {
+.form-container img {
+  height: 200px;
+  padding: 2% 0;
+}
+
+.form-container form {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -17,7 +22,7 @@
   border-radius: 5px;
 }
 
-.register-form label {
+.form-container form label {
   display: flex;
   background-color: #ededdf;
   justify-content: center;
@@ -27,11 +32,11 @@
   padding: 0 10px;
 }
 
-.register-form input[type="lastname"],
-.register-form input[type="firstname"],
-.register-form input[type="username"],
-.register-form input[type="email"],
-.register-form input[type="password"] {
+.form-container form input[type="lastname"],
+.form-container form input[type="firstname"],
+.form-container form input[type="username"],
+.form-container form input[type="email"],
+.form-container form input[type="password"] {
   padding: 6px;
   margin: 5px 10px;
   background-color: #ededdf;
@@ -39,21 +44,21 @@
   border-radius: 23px;
 }
 
-.register-form input:focus {
+.form-container form input:focus {
   border: 2px solid #686b0f;
   margin: 10px 20px;
   outline: none;
 }
 
-.register-form input[type="lastname"]:focus::placeholder,
-.register-form input[type="firstname"]:focus::placeholder,
-.register-form input[type="email"]:focus::placeholder,
-.register-form input[type="username"]:focus::placeholder,
-.register-form input[type="password"]:focus::placeholder {
+.form-container form input[type="lastname"]:focus::placeholder,
+.form-container form input[type="firstname"]:focus::placeholder,
+.form-container form input[type="email"]:focus::placeholder,
+.form-container form input[type="username"]:focus::placeholder,
+.form-container form input[type="password"]:focus::placeholder {
   color: transparent;
 }
 
-.register-button {
+.form-container button {
   width: 100px;
   border-radius: 10px;
   margin: 2%;
@@ -66,26 +71,13 @@
   border-bottom-width: 5px;
 }
 
-.register-button:hover {
-  background-color: #f3c677;
+.form-container button:active {
+  font-size: 13px;
 }
 
-.register-button:hover {
+.form-container button:hover {
   background-color: #011627;
   color: #f3c677;
   border: 2px solid #a38043;
   border-bottom-width: 5px;
-}
-
-.register-button:active {
-  font-size: 13px;
-}
-
-.register img {
-  height: 200px;
-  padding: 2% 0;
-}
-.error {
-  color: #ff441f;
-  font-size: 19px;
 }

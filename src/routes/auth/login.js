@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import loginImg from "../../images/login.svg";
-import "../../styles/login.css";
+import "../../styles/common/userAuth.css";
 import Alert from "../common/alert";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faLock } from "@fortawesome/free-solid-svg-icons";
@@ -31,10 +31,10 @@ const LoginForm = ({ login }) => {
   };
 
   return (
-    <div className="login">
+    <div className="form-container">
       <h1>Welcome Back</h1>
       <img src={loginImg} alt="login" />
-      <form className="login-form" onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <label>
           <FontAwesomeIcon icon={faUser} />
           <input
@@ -60,7 +60,10 @@ const LoginForm = ({ login }) => {
 
         {formErrors.length ? <Alert messages={formErrors} /> : null}
 
-        <input className="login-button" type="submit" value="Log In" />
+        <button type="submit" value="Log In">
+          Login
+        </button>
+
         <p>
           Don't Have an Account? <Link to="/register">Register</Link>
         </p>

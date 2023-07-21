@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import registerImg from "../../images/register.svg";
-import "../../styles/register.css";
+import "../../styles/common/userAuth.css";
 import Alert from "../common/alert";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -38,9 +38,9 @@ const RegisterForm = ({ register }) => {
   };
 
   return (
-    <div className="register">
+    <div className="form-container">
       <img src={registerImg} alt="register" />
-      <form className="register-form" onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <label>
           <FontAwesomeIcon icon={faUser} />
           <input
@@ -101,12 +101,14 @@ const RegisterForm = ({ register }) => {
           <Alert type="error" messages={formErrors} />
         ) : null}
 
-        <input
+        <button
           className="register-button"
           type="submit"
           value="Register"
           onClick={register}
-        />
+        >
+          Register
+        </button>
         <p>
           Already Have an Account? <Link to="/login">Login</Link>
         </p>

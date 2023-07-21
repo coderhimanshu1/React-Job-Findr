@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import loginImg from "../../images/login.svg";
 import "../../styles/common/userAuth.css";
 import Alert from "../common/alert";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faLock } from "@fortawesome/free-solid-svg-icons";
+import UserContext from "../common/userContext";
 
 const LoginForm = ({ login }) => {
   const navigate = useNavigate();
@@ -14,6 +15,7 @@ const LoginForm = ({ login }) => {
   });
 
   const [formErrors, setFormErrors] = useState([]);
+  const { currentUser } = useContext(UserContext);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -23,6 +25,7 @@ const LoginForm = ({ login }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     let result = await login(formData);
+    if (!result) return <div>loading...</div>;
     if (result.success) {
       navigate("/");
     } else {
@@ -58,7 +61,9 @@ const LoginForm = ({ login }) => {
           />
         </label>
 
-        {formErrors.length ? <Alert messages={formErrors} /> : null}
+        {formErrors.length ? (
+          <Alert type="error" messages={formErrors} />
+        ) : null}
 
         <button type="submit" value="Log In">
           Login

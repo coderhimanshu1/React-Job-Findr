@@ -20,7 +20,7 @@ const NavBar = () => {
   return (
     <div className="nav">
       <div className="nav-brand">
-        <NavLink href="/">
+        <NavLink exact to="/">
           <img className="nav-logo" src={logo} alt="logo" />
         </NavLink>
         <NavLink exact to="/">

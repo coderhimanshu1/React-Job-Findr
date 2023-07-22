@@ -30,6 +30,11 @@ function App() {
         try {
           let { username } = jwt.decode(token);
           let currentUser = await JoblyApi.getProfile(username);
+          // set the user data to local storage
+          window.localStorage.setItem(
+            "currentUser",
+            JSON.stringify(currentUser)
+          );
           setCurrentUser(currentUser);
         } catch (err) {
           setCurrentUser(null);
@@ -39,6 +44,14 @@ function App() {
     };
     getUser();
   }, [token]);
+
+  useEffect(() => {
+    // get user data from local storage
+    const storedUser = window.localStorage.getItem("currentUser");
+    if (storedUser) {
+      setCurrentUser(JSON.parse(storedUser));
+    }
+  }, []);
 
   /*
   Handles user login

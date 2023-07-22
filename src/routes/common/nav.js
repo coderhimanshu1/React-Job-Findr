@@ -14,6 +14,8 @@ const NavBar = () => {
     JoblyApi.token = null;
     setCurrentUser(null);
     setToken(null);
+    // remove user data from local storage
+    window.localStorage.removeItem("currentUser");
     navigate("/");
   };
 

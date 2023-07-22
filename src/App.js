@@ -29,6 +29,7 @@ function App() {
       if (token) {
         try {
           let { username } = jwt.decode(token);
+
           let currentUser = await JoblyApi.getProfile(username);
           // set the user data to local storage
           window.localStorage.setItem(

@@ -1,6 +1,10 @@
-# Getting Started with Create React App
+# React Job Findr
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App]
+
+![JobFindr banner](https://github.com/coderhimanshu1/React-Job-Findr/assets/87880250/1f29d3b0-aa50-49f4-aebd-f3879b9c610e)
+
+Live at: https://job-findr.onrender.com/
 
 ## Available Scripts
 
